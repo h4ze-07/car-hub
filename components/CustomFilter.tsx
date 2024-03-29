@@ -1,6 +1,6 @@
 import { FilterProps } from "@/types";
 
-const CustomFilter = ({title}: FilterProps) => {
+const CustomFilter = () => {
   return (
     <div>CustomFilter</div>
   )

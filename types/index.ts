@@ -9,7 +9,11 @@ export type CustomButtonProps = {
 }
 
 export type FilterProps = {
-    title: string,
+    manufacturer: string,
+    model: string,
+    year: number,
+    fuel: string,
+    limit: number,
 }
 
 export type ManufacturerProps = {

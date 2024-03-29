@@ -2,12 +2,19 @@ import CarCard from "@/components/CarCard";
 import CustomFilter from "@/components/CustomFilter";
 import Hero from "@/components/Hero";
 import SearchBar from "@/components/SearchBar";
+import { FilterProps } from "@/types";
 import { fetchCars } from "@/utils";
 import Image from "next/image";
 
-export default async function Home() {
+export default async function Home({searchParams}: {searchParams: FilterProps}) {
 
-    const allCars = await fetchCars();
+    const allCars = await fetchCars({
+      manufacturer: searchParams.manufacturer || '',
+      model: searchParams.model || '',
+      year: searchParams.year || 2023,
+      fuel: searchParams.fuel || '',
+      limit: searchParams.limit || 10,
+    });
     const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
 
     return (
@@ -23,8 +30,8 @@ export default async function Home() {
               <SearchBar />
 
               <div className="flex justify-start flex-wrap items-center gap-2">
-                <CustomFilter title='fuel' />
-                <CustomFilter title='year' />
+                {/* <CustomFilter title='fuel' />
+                <CustomFilter title='year' /> */}
               </div>
             </div>
           </div>
