@@ -2,6 +2,7 @@ import CarCard from "@/components/CarCard";
 import CustomFilter from "@/components/CustomFilter";
 import Hero from "@/components/Hero";
 import SearchBar from "@/components/SearchBar";
+import { fuels, yearsOfProduction } from "@/constants";
 import { FilterProps } from "@/types";
 import { fetchCars } from "@/utils";
 import Image from "next/image";
@@ -30,8 +31,8 @@ export default async function Home({searchParams}: {searchParams: FilterProps}) 
               <SearchBar />
 
               <div className="flex justify-start flex-wrap items-center gap-2">
-                {/* <CustomFilter title='fuel' />
-                <CustomFilter title='year' /> */}
+                <CustomFilter title='fuel' options={fuels} />
+                <CustomFilter title='year' options={yearsOfProduction} />
               </div>
             </div>
           </div>
@@ -42,7 +43,6 @@ export default async function Home({searchParams}: {searchParams: FilterProps}) 
                 {allCars?.map( car => (
                   <CarCard car={car} />
                 ))}
-
               </div>
             </section>
           ) : (

@@ -41,3 +41,18 @@ export type CardDetailsProps = {
     closeModal: () => void,
     car: Car,
 }
+
+type OptionsFuels = {
+    title: string,
+    value: string,
+}
+
+type OptionsYears = {
+    title: string,
+    value: string,   
+}
+
+export type CustomFilterProps = {
+    title: string,
+    options: OptionsFuels[] | OptionsYears[],
+}
